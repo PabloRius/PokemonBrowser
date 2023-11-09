@@ -222,7 +222,7 @@ window.OverWorldMaps = {
   oak_lab: {
     gameObjects: {
       hero: new Person({
-        x: utils.withGrid(12),
+        x: utils.withGrid(13),
         y: utils.withGrid(16),
         src: "assets/players/TrainerM.png",
         isPlayerControlled: true,
