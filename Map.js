@@ -147,7 +147,7 @@ window.OverWorldMaps = {
       }),
       rival: new Person({
         x: utils.withGrid(11),
-        y: utils.withGrid(10),
+        y: utils.withGrid(11),
         src: "assets/players/Blue.png",
         animations: {
           "idle-up": [[0, 1]],
