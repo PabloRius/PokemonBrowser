@@ -65,8 +65,14 @@ class OverWorldEvent {
   }
 
   changeMap(resolve) {
-    this.map.overworld.startMap(window.OverWorldMaps[this.event.map]);
-    resolve();
+    const sceneTransition = new SceneTransition();
+    sceneTransition.init(document.querySelector(".game-container"), () => {
+      console.log("Started warping!!");
+      this.map.overworld.startMap(window.OverWorldMaps[this.event.map]);
+      resolve();
+
+      sceneTransition.fadeOut();
+    });
   }
 
   init() {
