@@ -5,9 +5,36 @@ class Battle {
         {
           ...window.Pokemons.dragonite,
           team: "player",
-          hp: 50,
+          hp: 30,
           maxHp: 50,
           xp: 0,
+          maxXp: 100,
+          level: 1,
+          status: null,
+        },
+        this
+      ),
+      player2: new Combatant(
+        {
+          ...window.Pokemons.charmander,
+          team: "player",
+          hp: 30,
+          maxHp: 50,
+          xp: 0,
+          maxXp: 100,
+          level: 1,
+          status: null,
+        },
+        this
+      ),
+      player3: new Combatant(
+        {
+          ...window.Pokemons.bulbasaur,
+          team: "player",
+          hp: 30,
+          maxHp: 50,
+          xp: 0,
+          maxXp: 100,
           level: 1,
           status: null,
         },
@@ -19,12 +46,37 @@ class Battle {
           team: "enemy",
           hp: 50,
           maxHp: 50,
-          xp: 0,
           level: 1,
           status: null,
         },
         this
       ),
+      enemy2: new Combatant(
+        {
+          ...window.Pokemons.bulbasaur,
+          team: "enemy",
+          hp: 50,
+          maxHp: 50,
+          level: 1,
+          status: null,
+        },
+        this
+      ),
+      enemy3: new Combatant(
+        {
+          ...window.Pokemons.charmander,
+          team: "enemy",
+          hp: 50,
+          maxHp: 50,
+          level: 1,
+          status: null,
+        },
+        this
+      ),
+    };
+    this.activeCombatants = {
+      player: "player3",
+      enemy: "enemy3",
     };
   }
 

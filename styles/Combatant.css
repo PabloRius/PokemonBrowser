@@ -106,10 +106,10 @@
 
 .Combatant_xp-container {
   position: absolute;
-  left: 20px;
-  top: 8px;
-  width: 26px;
-  height: 2px;
+  left: 70px;
+  top: 76px;
+  width: 128px;
+  height: 4px;
 }
 
 .Combatant[data-team="player"] .Combatant_level {
@@ -142,4 +142,32 @@
 }
 .Combatant_status [data-status="drop"] {
   background: #582a79;
+}
+
+.Pokemon {
+  position: absolute;
+  width: 128px;
+  overflow: hidden;
+}
+
+.Pokemon[data-team="player"] {
+  bottom: 92px;
+  left: 58px;
+}
+
+.Pokemon[data-team="player"] img {
+  transform: translateX(-128px);
+}
+
+.Pokemon[data-team="enemy"] {
+  top: 13px;
+  right: 63px;
+}
+
+.Pokemon[data-active="false"] {
+  opacity: 0;
+}
+
+.Pokemon[data-active="true"] {
+  opacity: 1;
 }

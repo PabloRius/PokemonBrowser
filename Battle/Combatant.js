@@ -1,7 +1,6 @@
 class Combatant {
   constructor(config, battle) {
     Object.keys(config).forEach((key) => {
-      console.log(config[key]);
       this[key] = config[key];
     });
 
@@ -11,6 +10,16 @@ class Combatant {
   get hpPercent() {
     const percent = (this.hp / this.maxHp) * 100;
     return Math.max(percent, 0);
+  }
+
+  get xpPercent() {
+    if (this.xp && this.maxXp) {
+      return (this.xp / this.maxXp) * 100;
+    }
+  }
+
+  get isActive() {
+    return this.battle.activeCombatants[this.team] === this.id;
   }
 
   createElement() {
@@ -30,14 +39,25 @@ class Combatant {
             <rect x=0 y=2 width: "0%" height=5 fill="#3ef126" />
         </svg>
         <svg class="Combatant_xp-container">
-        <rect x="0" y="0" width: "0%" height="1" fill="#ffd76a"  />
-            <rect x=0 y=1 width: "0%" height=1 fill="#ffc934" />
+        <rect x="0" y="0" width: "0%" height="5" fill="#ffd76a"  />
         </svg>
         <p class="Combatant_status"></p>
     `;
 
+    this.pokemonElement = document.createElement("div");
+    this.pokemonElement.classList.add("Pokemon");
+    this.pokemonElement.setAttribute("data-team", this.team);
+    this.pokemonElementImg = document.createElement("img");
+    this.pokemonElementImg.setAttribute("src", this.src);
+    this.pokemonElementImg.setAttribute("alt", this.name);
+    this.pokemonElement.appendChild(this.pokemonElementImg);
+
     this.hpFills = this.hudElement.querySelectorAll(
       ".Combatant_life-container > rect"
+    );
+
+    this.xpFills = this.hudElement.querySelectorAll(
+      ".Combatant_xp-container > rect"
     );
   }
 
@@ -46,9 +66,17 @@ class Combatant {
       this[key] = changes[key];
     });
 
+    this.hudElement.setAttribute("data-active", this.isActive);
+    this.pokemonElement.setAttribute("data-active", this.isActive);
+
     this.hpFills.forEach((rect) => {
       rect.style.width = `${this.hpPercent}%`;
     });
+    if (this.xp && this.maxXp) {
+      this.xpFills.forEach((rect) => {
+        rect.style.width = `${this.xpPercent}%`;
+      });
+    }
 
     this.hudElement.querySelector(".Combatant_level").innerText = this.level;
   }
@@ -56,6 +84,7 @@ class Combatant {
   init(container) {
     this.createElement();
     container.appendChild(this.hudElement);
+    container.appendChild(this.pokemonElement);
     this.update();
   }
 }
