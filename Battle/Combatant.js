@@ -8,6 +8,11 @@ class Combatant {
     this.battle = battle;
   }
 
+  get hpPercent() {
+    const percent = (this.hp / this.maxHp) * 100;
+    return Math.max(percent, 0);
+  }
+
   createElement() {
     this.hudElement = document.createElement("div");
     this.hudElement.classList.add("Combatant");
@@ -20,20 +25,37 @@ class Combatant {
             <img class="Combatant_character" alt="${this.name}" src="${this.src}"/>
         </div>
         <img class="Combatant_type" src="${this.icon}" alt="${this.name}" />
-        <svg viewBox="0 0 26 3" class="Combatant_life-container">
-            <rect x=0 y=0 width="0" height=1 fill="#82ff71" />
-            <rect x=0 y=1 width="0" height=2 fill="#3ef126" />
+        <svg class="Combatant_life-container">
+            <rect x=0 y=0 width: "0%" height=3 fill="#82ff71" />
+            <rect x=0 y=2 width: "0%" height=5 fill="#3ef126" />
         </svg>
-        <svg viewBox="0 0 26 2" class="Combatant_xp-container">
-            <rect x=0 y=0 width="0" height=1 fill="#ffd76a" />
-            <rect x=0 y=1 width="0" height=1 fill="#ffc934" />
+        <svg class="Combatant_xp-container">
+        <rect x="0" y="0" width: "0%" height="1" fill="#ffd76a"  />
+            <rect x=0 y=1 width: "0%" height=1 fill="#ffc934" />
         </svg>
         <p class="Combatant_status"></p>
     `;
+
+    this.hpFills = this.hudElement.querySelectorAll(
+      ".Combatant_life-container > rect"
+    );
+  }
+
+  update(changes = {}) {
+    Object.keys(changes).forEach((key) => {
+      this[key] = changes[key];
+    });
+
+    this.hpFills.forEach((rect) => {
+      rect.style.width = `${this.hpPercent}%`;
+    });
+
+    this.hudElement.querySelector(".Combatant_level").innerText = this.level;
   }
 
   init(container) {
     this.createElement();
     container.appendChild(this.hudElement);
+    this.update();
   }
 }

@@ -6,6 +6,15 @@
   font-size: 16px;
   font-family: "Archivo", sans-serif;
 }
+
+.Combatant[data-active="false"] {
+  opacity: 0;
+}
+
+.Combatant[data-active="true"] {
+  opacity: 1;
+}
+
 .Combatant[data-team="player"] {
   background: url(../assets/battle/hud/Player.png) no-repeat no-repeat;
   left: 229px;
@@ -75,13 +84,22 @@
   transform: scale(1.5);
 }
 
-.Combatant_life-container {
+.Combatant[data-team="player"] .Combatant_life-container {
   position: absolute;
-  left: 20px;
-  top: 4px;
-  width: 26px;
-  height: 3px;
+  left: 101.9999px;
+  top: 43.7px;
+  width: 96.8px;
+  height: 6.4px;
 }
+
+.Combatant[data-team="enemy"] .Combatant_life-container {
+  position: absolute;
+  left: 92px;
+  top: 53.7px;
+  width: 96.8px;
+  height: 6.4px;
+}
+
 .Combatant_life-container > rect {
   transition: width 0.2s;
 }
