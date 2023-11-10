@@ -1,0 +1,127 @@
+.Combatant {
+  width: 224px;
+  height: 96px;
+  position: absolute;
+  transform: scale(0.75);
+  font-size: 16px;
+  font-family: "Archivo", sans-serif;
+}
+.Combatant[data-team="player"] {
+  background: url(../assets/battle/hud/Player.png) no-repeat no-repeat;
+  left: 229px;
+  top: 147px;
+}
+.Combatant[data-team="enemy"] {
+  background: url(../assets/battle/hud/Enemy.png) no-repeat no-repeat;
+  top: 20px;
+  right: 238px;
+}
+
+.Combatant_character_crop {
+  position: absolute;
+  bottom: 1px;
+  left: 3px;
+  width: 22px;
+  height: 12px;
+  overflow: hidden;
+}
+.Combatant_character {
+  display: block;
+  position: absolute;
+  left: -11px;
+  bottom: -7px;
+}
+.Battle .Combatant_character_crop {
+  display: none;
+}
+
+.Combatant[data-team="player"] .Combatant_name {
+  position: absolute;
+  left: 38px;
+  top: 19px;
+  white-space: nowrap;
+  color: black;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin: 0;
+}
+
+.Combatant[data-team="enemy"] .Combatant_name {
+  position: absolute;
+  left: 30px;
+  top: 28px;
+  white-space: nowrap;
+  color: black;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin: 0;
+}
+
+.Combatant[data-team="player"] .Combatant_type {
+  position: absolute;
+  left: 42px;
+  top: 42px;
+  width: 16px;
+  height: 16px;
+  transform: scale(2);
+}
+
+.Combatant[data-team="enemy"] .Combatant_type {
+  position: absolute;
+  left: 35px;
+  top: 46px;
+  width: 16px;
+  height: 16px;
+  transform: scale(1.5);
+}
+
+.Combatant_life-container {
+  position: absolute;
+  left: 20px;
+  top: 4px;
+  width: 26px;
+  height: 3px;
+}
+.Combatant_life-container > rect {
+  transition: width 0.2s;
+}
+
+.Combatant_xp-container {
+  position: absolute;
+  left: 20px;
+  top: 8px;
+  width: 26px;
+  height: 2px;
+}
+
+.Combatant[data-team="player"] .Combatant_level {
+  position: absolute;
+  right: 32px;
+  top: 19px;
+  margin: 0;
+}
+
+.Combatant[data-team="enemy"] .Combatant_level {
+  position: absolute;
+  right: 41px;
+  top: 29px;
+  margin: 0;
+}
+
+.Combatant_status {
+  position: absolute;
+  font-size: 5px;
+  left: 47px;
+  bottom: -3px;
+  padding-left: 2px;
+  padding-right: 2px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  margin: 0;
+}
+.Combatant_status [data-status="saucy"] {
+  color: red;
+}
+.Combatant_status [data-status="drop"] {
+  background: #582a79;
+}
