@@ -10,6 +10,13 @@
   background: url("../assets/interfaces/TextBorder.png");
   color: var(--menu-font-color);
 }
+
+.BattleTextMessage {
+  background: none;
+  padding: 17px 19px;
+  color: aliceblue;
+}
+
 .TextMessage_p {
   margin: 0;
   font-size: 20px;

@@ -26,6 +26,7 @@ window.Pokemons = {
     type: window.PokemonTypes.grass,
     src: "assets/battle/pokes/bulbasaur.png",
     icon: "assets/icons/pokes/bulbasaur.png",
+    actions: ["tackle"],
   },
   charmander: {
     id: "004",
@@ -33,6 +34,7 @@ window.Pokemons = {
     type: window.PokemonTypes.fire,
     src: "assets/battle/pokes/charmander.png",
     icon: "assets/icons/pokes/charmander.png",
+    actions: ["tackle"],
   },
   dragonite: {
     id: "149",
@@ -40,5 +42,6 @@ window.Pokemons = {
     type: window.PokemonTypes.dragon,
     src: "assets/battle/pokes/dragonite.png",
     icon: "assets/icons/pokes/dragonite.png",
+    actions: ["tackle"],
   },
 };
