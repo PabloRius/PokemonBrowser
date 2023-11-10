@@ -1,0 +1,38 @@
+.Battle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url(../assets/battle/backgrounds/default.png);
+  background-size: contain;
+  image-rendering: pixelated;
+  background-repeat: no-repeat;
+}
+
+.Battle_hero,
+.Battle_enemy {
+  position: absolute;
+  width: 32px;
+  height: 64px;
+  overflow: hidden;
+}
+
+.Battle_hero img,
+.Battle_enemy img {
+  pointer-events: none;
+}
+
+.Battle_hero {
+  bottom: 97px;
+  left: 4px;
+}
+
+.Battle_hero img {
+  transform: translateX(-32px);
+}
+
+.Battle_enemy {
+  top: 32px;
+  right: 7px;
+}

@@ -17,16 +17,18 @@ body {
   padding: 0;
   margin: 0;
   overflow: hidden;
+
+  transform: scale(2);
 }
 
 .game-container {
   position: relative;
-  width: 608px;
-  height: 416px;
+  width: 480px;
+  height: 320px;
   margin: 0 auto;
   outline: 1px solid #fff;
 
-  transform: translateY(50%);
+  transform: translateY(40%);
 }
 
 .game-container canvas {

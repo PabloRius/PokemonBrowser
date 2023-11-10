@@ -85,10 +85,11 @@ class Overworld {
     console.log("Initialization complete");
 
     this.map.startCutscene([
-      {
-        type: "textMessage",
-        text: "Game beginning, welcome to the first and best version of Pokemon fire red playable version for browsers",
-      },
+      // {
+      //   type: "textMessage",
+      //   text: "Game beginning, welcome to the first and best version of Pokemon fire red playable version for browsers",
+      // },
+      { type: "battle" },
     ]);
   }
 }

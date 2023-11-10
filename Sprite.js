@@ -82,14 +82,14 @@ class Sprite {
   }
 
   draw(ctx, cameraman, limitx, limity) {
-    let xpad = utils.withGrid(9) - cameraman.x;
+    let xpad = utils.withGrid(7) - cameraman.x;
     if (xpad > 0) {
       xpad = 0;
     } else if (xpad < ctx.canvas.width - limitx) {
       xpad = ctx.canvas.width - limitx;
     }
     let x = this.gameObject.x + xpad;
-    let ypad = utils.withGrid(6) - cameraman.y;
+    let ypad = utils.withGrid(4) - cameraman.y;
     if (ypad > 0) {
       ypad = 0;
     } else if (ypad < ctx.canvas.height - limity) {

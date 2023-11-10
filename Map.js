@@ -25,13 +25,13 @@ class Map {
   }
 
   drawLowerImage(ctx, cameraMan) {
-    let imageX = utils.withGrid(9) - cameraMan.x;
+    let imageX = utils.withGrid(7) - cameraMan.x;
     if (imageX > 0) {
       imageX = 0;
     } else if (imageX < ctx.canvas.width - this.width) {
       imageX = ctx.canvas.width - this.width;
     }
-    let imageY = utils.withGrid(6) - cameraMan.y;
+    let imageY = utils.withGrid(4) - cameraMan.y;
     if (imageY > 0) {
       imageY = 0;
     } else if (imageY < ctx.canvas.height - this.height) {
@@ -43,13 +43,13 @@ class Map {
   }
 
   drawUpperImage(ctx, cameraMan) {
-    let imageX = utils.withGrid(9) - cameraMan.x;
+    let imageX = utils.withGrid(7) - cameraMan.x;
     if (imageX > 0) {
       imageX = 0;
     } else if (imageX < ctx.canvas.width - this.width) {
       imageX = ctx.canvas.width - this.width;
     }
-    let imageY = utils.withGrid(6) - cameraMan.y;
+    let imageY = utils.withGrid(4) - cameraMan.y;
     if (imageY > 0) {
       imageY = 0;
     } else if (imageY < ctx.canvas.height - this.height) {
