@@ -76,3 +76,30 @@
 .battle-spin-left {
   animation: battle-spin-left 0.8s;
 }
+
+.Animation_enemy .tackle-effect,
+.Animation_player .tackle-effect {
+  visibility: visible;
+}
+
+.Animation_hidden {
+  visibility: hidden;
+}
+
+.Animation_player,
+.Animation_enemy {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  opacity: 70%;
+}
+
+.Animation_player {
+  bottom: 27px;
+  left: 194px;
+}
+
+.Animation_enemy {
+  top: 79px;
+  right: 67px;
+}

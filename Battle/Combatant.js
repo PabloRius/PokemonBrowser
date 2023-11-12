@@ -50,7 +50,14 @@ class Combatant {
     this.pokemonElementImg = document.createElement("img");
     this.pokemonElementImg.setAttribute("src", this.src);
     this.pokemonElementImg.setAttribute("alt", this.name);
+    this.animationElement = document.createElement("img");
+    this.animationElement.classList.add(`Animation_${this.team}`);
+    this.animationElement.classList.add(`Animation_hidden`);
+    this.animationElement.setAttribute("src", "");
+    this.animationElement.setAttribute("alt", "");
+
     this.pokemonElement.appendChild(this.pokemonElementImg);
+    this.pokemonElement.appendChild(this.animationElement);
 
     this.hpFills = this.hudElement.querySelectorAll(
       ".Combatant_life-container > rect"
