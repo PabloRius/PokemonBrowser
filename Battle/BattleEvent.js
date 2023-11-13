@@ -20,16 +20,30 @@ class BattleEvent {
   }
 
   async stateChange(resolve) {
-    const { caster, target, damage } = this.event;
+    const { caster, target, damage, heal, status } = this.event;
+    const who = this.event.onCaster ? caster : target;
     if (damage) {
-      target.update({
-        hp: target.hp - damage,
+      who.update({
+        hp: who.hp - damage,
       });
-      target.pokemonElement.classList.add("battle-damage-blink");
+      who.pokemonElement.classList.add("battle-damage-blink");
+    }
+
+    if (heal) {
+      who.update({
+        hp: who.hp + heal,
+      });
+    }
+
+    if (status) {
+      who.update({ status: { ...status } });
+    }
+    if (status === null) {
+      who.update({ status: null });
     }
 
     await utils.wait(400);
-    target.pokemonElement.classList.remove("battle-damage-blink");
+    who.pokemonElement.classList.remove("battle-damage-blink");
     resolve();
   }
 

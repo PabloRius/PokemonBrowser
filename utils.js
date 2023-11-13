@@ -47,4 +47,8 @@ const utils = {
       }, ms);
     });
   },
+
+  randomForArray(array) {
+    return array[Math.floor(Math.random() * array.length)];
+  },
 };

@@ -86,6 +86,52 @@ class Combatant {
     }
 
     this.hudElement.querySelector(".Combatant_level").innerText = this.level;
+
+    const statusElement = this.hudElement.querySelector(".Combatant_status");
+    if (this.status) {
+      statusElement.innerText = this.status.type;
+      statusElement.setAttribute("data-status", this.status.type);
+      statusElement.style.display = "block";
+    } else {
+      statusElement.innerText = "";
+      statusElement.setAttribute("data-status", "");
+      statusElement.style.display = "none";
+    }
+  }
+
+  getPostEvents() {
+    if (this.status?.type === "burnt") {
+      return [
+        { type: "textMessage", text: "... got burnt" },
+        { type: "stateChange", damage: 5, onCaster: true },
+      ];
+    }
+    return [];
+  }
+
+  getReplacedEvents(originalEvents) {
+    if (
+      this.status?.type === "paralysed" &&
+      utils.randomForArray([false, false, false, true])
+    ) {
+      return [{ type: "textMessage", text: `${this.name} is paralysed` }];
+    }
+
+    return originalEvents;
+  }
+
+  decrementStatus() {
+    if (this.status?.expiresIn > 0) {
+      this.status.expiresIn -= 1;
+      if (this.status.expiresIn === 0) {
+        this.update({ status: null });
+        return {
+          type: "textMessage",
+          text: "Status went out",
+        };
+      }
+    }
+    return null;
   }
 
   init(container) {

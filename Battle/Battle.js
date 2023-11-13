@@ -75,7 +75,7 @@ class Battle {
       ),
     };
     this.activeCombatants = {
-      player: "player3",
+      player: "player1",
       enemy: "enemy3",
     };
   }

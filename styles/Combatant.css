@@ -8,11 +8,11 @@
 }
 
 .Combatant[data-active="false"] {
-  opacity: 0;
+  display: none;
 }
 
 .Combatant[data-active="true"] {
-  opacity: 1;
+  display: block;
 }
 
 .Combatant[data-team="player"] {
@@ -126,22 +126,36 @@
   margin: 0;
 }
 
-.Combatant_status {
+.Combatant[data-team="player"] .Combatant_status {
   position: absolute;
-  font-size: 5px;
-  left: 47px;
-  bottom: -3px;
+  font-size: 9px;
+  left: 71px;
+  bottom: 29px;
   padding-left: 2px;
   padding-right: 2px;
   background: rgba(0, 0, 0, 0.8);
   color: white;
   margin: 0;
 }
-.Combatant_status [data-status="saucy"] {
-  color: red;
+
+.Combatant[data-team="enemy"] .Combatant_status {
+  position: absolute;
+  font-size: 9px;
+  left: 20px;
+  bottom: 31px;
+  padding-left: 2px;
+  padding-right: 2px;
+  color: white;
+  margin: 0;
 }
-.Combatant_status [data-status="drop"] {
-  background: #582a79;
+.Combatant_status[data-status="frozen"] {
+  background: lightskyblue;
+}
+.Combatant_status[data-status="burnt"] {
+  background: crimson;
+}
+.Combatant_status[data-status="paralysed"] {
+  background: yellow;
 }
 
 .Pokemon {
@@ -165,9 +179,9 @@
 }
 
 .Pokemon[data-active="false"] {
-  opacity: 0;
+  display: none;
 }
 
 .Pokemon[data-active="true"] {
-  opacity: 1;
+  display: block;
 }
